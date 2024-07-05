@@ -1,11 +1,12 @@
 import { useRef, useState, useEffect, useContext } from 'react';
-/* import AuthContext from "./context/AuthProvider"; */
+import { Link } from 'react-router-dom';
+import AuthContext from '../context/AuthProvider';
 
-/* import axios from './api/axios';
-const LOGIN_URL = '/auth'; */
+import axios from 'axios';
+const LOGIN_URL = '/auth';
 
 const Login = () => {
-    /* const { setAuth } = useContext(AuthContext); */
+    const { setAuth } = useContext(AuthContext);
     const userRef = useRef();
     const errRef = useRef();
 
@@ -25,7 +26,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        /* try {
+        try {
             const response = await axios.post(LOGIN_URL,
                 JSON.stringify({ user, pwd }),
                 {
@@ -34,7 +35,7 @@ const Login = () => {
                 }
             );
             console.log(JSON.stringify(response?.data));
-            //console.log(JSON.stringify(response));
+            console.log(JSON.stringify(response));
             const accessToken = response?.data?.accessToken;
             const roles = response?.data?.roles;
             setAuth({ user, pwd, roles, accessToken });
@@ -52,7 +53,7 @@ const Login = () => {
                 setErrMsg('Login Failed');
             }
             errRef.current.focus();
-        }*/
+        }
     } 
 
     return (
@@ -62,7 +63,7 @@ const Login = () => {
                     <h1>You are logged in!</h1>
                     <br />
                     <p>
-                        <a href="#">Go to Home</a>
+                    <Link to ="/home">Home</Link>
                     </p>
                 </section>
             ) : (
@@ -94,8 +95,7 @@ const Login = () => {
                     <p>
                         Need an Account?<br />
                         <span className="line">
-                            {/*put router link here*/}
-                            <a href="#">Sign Up</a>
+                        <Link to ="/Register">Sign up</Link>
                         </span>
                     </p>
                 </section>
