@@ -72,7 +72,7 @@ const Login = () => {
                     <h1 className="flex flex-col justify-center items-center text-3xl p-14 m-10 font-bold ">Sign In</h1>
                     <form className="flex flex-col justify-evenly grow pb-1" onSubmit={handleSubmit}>
                         <label className="mt-4" htmlFor="username">Username:</label>
-                        <input
+                        <input className='py-1 px-3 text-base justify-center rounded-3xl w-64 m-1 border-2 outline-none'
                             type="text"
                             id="username"
                             ref={userRef}
@@ -83,7 +83,7 @@ const Login = () => {
                         />
 
                         <label className="mt-4" htmlFor="password">Password:</label>
-                        <input
+                        <input className='py-1 px-3 text-base justify-center rounded-3xl w-64 m-1 border-2 outline-none'
                             type="password"
                             id="password"
                             onChange={(e) => setPwd(e.target.value)}

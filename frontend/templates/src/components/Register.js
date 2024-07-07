@@ -46,7 +46,6 @@ const Register = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // if button enabled with JS hack
         const v1 = USER_REGEX.test(user);
         const v2 = PWD_REGEX.test(pwd);
         if (!v1 || !v2) {
@@ -105,7 +104,7 @@ const Register = () => {
                                 <FontAwesomeIcon icon={faTimes} />
                             </span>
                         </label>
-                        <input className="p-1 text-base justify-center rounded-3xl w-64 m-1 border-2 outline-none"
+                        <input className="py-1 px-3 text-base justify-center rounded-3xl w-64 m-1 border-2 outline-none"
                             type="text"
                             id="username"
                             ref={userRef}
@@ -136,7 +135,7 @@ const Register = () => {
                                 <FontAwesomeIcon icon={faTimes}/>
                             </span>
                         </label>
-                        <input className="p-1 text-base rounded-3xl m-1 w-64  border-2 outline-none"
+                        <input className="py-1 px-3 text-base rounded-3xl m-1 w-64  border-2 outline-none"
                             type="password"
                             id="password"
                             onChange={(e)=>setPwd(e.target.value)}
@@ -169,7 +168,7 @@ const Register = () => {
                                 <FontAwesomeIcon icon={faTimes} />
                             </span>
                         </label>
-                        <input className="p-1 text-base rounded-3xl w-64 m-1  border-2 outline-none"
+                        <input className="py-1 px-3 text-base rounded-3xl w-64 m-1  border-2 outline-none"
                             type="password"
                             id="confirm_password"
                             onChange={(e)=>setMatchPwd(e.target.value)}
