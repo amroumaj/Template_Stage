@@ -13,7 +13,6 @@ const RightSidebar = ({
   fabricRef,
   activeObjectRef,
   isEditingRef,
-  syncShapeInStorage,
 }: RightSidebarProps) => {
   const colorInputRef = useRef(null);
   const strokeInputRef = useRef(null);
@@ -28,7 +27,6 @@ const RightSidebar = ({
       property,
       value,
       activeObjectRef,
-      syncShapeInStorage,
     });
   };
   
@@ -48,13 +46,13 @@ const RightSidebar = ({
           handleInputChange={handleInputChange}
         /> */}
 
-        <Text
-          /* /* fontFamily={elementAttributes.fontFamily} 
+{/*         <Text
+           /* fontFamily={elementAttributes.fontFamily} 
           fontSize={elementAttributes.fontSize}
           fontWeight={elementAttributes.fontWeight}
-          handleInputChange={handleInputChange} */
+          handleInputChange={handleInputChange} 
  
-        />
+        /> */}
 
 {/*         <Color
           inputRef={colorInputRef}

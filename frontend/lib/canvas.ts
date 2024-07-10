@@ -104,13 +104,12 @@ export const handleCanvasMouseDown = ({
 };
 
 // handle mouse move event on canvas to draw shapes with different dimensions
-export const handleCanvaseMouseMove = ({
+export const handleCanvasMouseMove = ({
   options,
   canvas,
   isDrawing,
   selectedShapeRef,
   shapeRef,
-  syncShapeInStorage,
 }: CanvasMouseMove) => {
   // if selected shape is freeform, return
   if (!isDrawing.current) return;
@@ -165,10 +164,6 @@ export const handleCanvaseMouseMove = ({
   // renderAll: http://fabricjs.com/docs/fabric.Canvas.html#renderAll
   canvas.renderAll();
 
-  // sync shape in storage
-  if (shapeRef.current?.objectId) {
-    syncShapeInStorage(shapeRef.current);
-  }
 };
 
 // handle mouse up event on canvas to stop drawing shapes
@@ -178,14 +173,11 @@ export const handleCanvasMouseUp = ({
   shapeRef,
   activeObjectRef,
   selectedShapeRef,
-  syncShapeInStorage,
   setActiveElement,
 }: CanvasMouseUp) => {
   isDrawing.current = false;
   if (selectedShapeRef.current === "freeform") return;
 
-  // sync shape in storage as drawing is stopped
-  syncShapeInStorage(shapeRef.current);
 
   // set everything to null
   shapeRef.current = null;
@@ -203,22 +195,18 @@ export const handleCanvasMouseUp = ({
 // update shape in storage when object is modified
 export const handleCanvasObjectModified = ({
   options,
-  syncShapeInStorage,
 }: CanvasObjectModified) => {
   const target = options.target;
   if (!target) return;
 
   if (target?.type == "activeSelection") {
     // fix this
-  } else {
-    syncShapeInStorage(target);
-  }
+  } 
 };
 
 // update shape in storage when path is created when in freeform mode
 export const handlePathCreated = ({
   options,
-  syncShapeInStorage,
 }: CanvasPathCreated) => {
   // get path object
   const path = options.path;
@@ -229,8 +217,6 @@ export const handlePathCreated = ({
     objectId: uuid4(),
   });
 
-  // sync shape in storage
-  syncShapeInStorage(path);
 };
 
 // check how object is moving on canvas and restrict it to canvas boundaries
