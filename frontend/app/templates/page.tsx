@@ -6,7 +6,7 @@ import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import Link from "next/link";
 export default function page() {
   return (
-    <div className="grid grid-cols-3 gap-4">
+    <div className="grid grid-cols-3 gap-4 bg-slate-900">
       <CardContainer className="inter-var">
         <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-slate-950 dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
             <CardItem
@@ -197,7 +197,7 @@ export default function page() {
             >
             Hover over this card to unleash the power of CSS perspective
             </CardItem>
-            <CardItem className="invert" translateZ="100" className="w-full mt-4">
+            <CardItem translateZ="100" className="w-full mt-4">
             <Image 
                 src="/assets/images/dashboard-customize.svg"
                 height="600"

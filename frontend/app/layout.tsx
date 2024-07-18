@@ -70,16 +70,15 @@ export default function RootLayout({
                         <NavigationMenuLink asChild>
                           <a
                             className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                            href="/create_template"
+                            href="/templates"
                           >
                             {/* <Icons.logo className="h-6 w-6" /> */}
                             <div className="mb-2 mt-4 text-lg font-medium">
-                              Create a Template
+                              Get Started
                             </div>
                             <p className="text-sm leading-tight text-muted-foreground">
-                              Beautifully designed components that you can copy and
-                              paste into your apps. Accessible. Customizable. Open
-                              Source.
+                              Beautifully designed templates that you can export and
+                              download onto your PC. Accessible. Customizable.
                             </p>
                           </a>
                         </NavigationMenuLink>

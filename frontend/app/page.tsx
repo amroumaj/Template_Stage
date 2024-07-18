@@ -1,5 +1,5 @@
 import { FlipWords } from "@/components/ui/flip-words"
-import { SparklesCore } from "@/components/ui/sparkles"
+
 
 
 const page = () => {
