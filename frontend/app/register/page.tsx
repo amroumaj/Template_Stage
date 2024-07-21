@@ -1,18 +1,36 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { Label } from "@/components/ui/label";
+import { useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input";
+import { signup } from "@/lib/pocketbase";
 import { cn } from "@/lib/utils";
 import {
   IconBrandGithub,
   IconBrandGoogle,
   IconBrandOnlyfans,
 } from "@tabler/icons-react";
+
+type formValues = {
+  username: string,
+  email: string,
+  password: string
+}
+
 export default function page() {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("Form submitted");
-  };
+
+  const { register, handleSubmit } = useForm<formValues>();
+
+  const onSubmit =  (data: formValues)  => {
+    signup(data.username, data.email, data.password);   
+  }
+/*   const handleSubmit = () => {
+    if (!username || !password || !email) {
+      window.alert("Invalid Login credentials");
+      return;
+    }
+    signup(username, password, email);
+  }; */
   return (
       <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-slate-950 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
@@ -22,24 +40,24 @@ export default function page() {
           Login to be able to create and customize your templates
         </p>
   
-        <form className="my-8" onSubmit={handleSubmit}>
+        <form className="my-8" onSubmit={handleSubmit(onSubmit)}>
           <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
             <LabelInputContainer>
-              <Label htmlFor="firstname">First name</Label>
-              <Input className="bg-slate-800" id="firstname" placeholder="John" type="text" />
+              <Label htmlFor="username">First name</Label>
+              <Input className="bg-slate-800" id="firstname" placeholder="John Doe" type="text" required {...register("username")} />
             </LabelInputContainer>
-            <LabelInputContainer>
+{/*             <LabelInputContainer>
               <Label htmlFor="lastname">Last name</Label>
               <Input className="bg-slate-800" id="lastname" placeholder="Doe" type="text" />
-            </LabelInputContainer>
+            </LabelInputContainer> */}
           </div>
           <LabelInputContainer className="mb-4">
             <Label htmlFor="email">Email Address</Label>
-            <Input className="bg-slate-800" id="email" placeholder="JohnDoe@example.com" type="email" />
+            <Input className="bg-slate-800" id="email" placeholder="JohnDoe@example.com" type="email" required {...register("email")} />
           </LabelInputContainer>
           <LabelInputContainer className="mb-4">
             <Label htmlFor="password">Password</Label>
-            <Input className="bg-slate-800" id="password" placeholder="••••••••" type="password" />
+            <Input className="bg-slate-800" id="password" placeholder="••••••••" type="password" required {...register("password")} />
           </LabelInputContainer>
   {/*         <LabelInputContainer className="mb-8">
             <Label htmlFor="twitterpassword">Your twitter password</Label>

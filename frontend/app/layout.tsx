@@ -25,13 +25,13 @@ const components: { title: string; href: string; description: string }[] = [
     title: "Sign Up",
     href: "/register",
     description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
+      "Create an account to start using the templates",
   },
   {
     title: "Login",
     href: "/login",
     description:
-      "For sighted users to preview content available behind a link.",
+      "Log into your account to get access all our features",
   }
 ]
 
@@ -53,20 +53,20 @@ export default function RootLayout({
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange>
-            <NavigationMenu>
-              <NavigationMenuList>
+            <NavigationMenu className="bg-slate-950">
+              <NavigationMenuList className="bg-slate-950">
                <NavigationMenuItem>
                   <Link href="/" legacyBehavior passHref>
-                  <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
+                  <NavigationMenuLink className="bg-slate-950 group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-slate-800 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
                       Home
                     </NavigationMenuLink>
                   </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger> Templates</NavigationMenuTrigger>
-                  <NavigationMenuContent>
+                  <NavigationMenuTrigger className="bg-slate-950 hover:bg-slate-800"> Templates</NavigationMenuTrigger>
+                  <NavigationMenuContent className="bg-slate-900">
                     <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                      <li className="row-span-3">
+                      <li className="row-span-4">
                         <NavigationMenuLink asChild>
                           <a
                             className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
@@ -83,22 +83,21 @@ export default function RootLayout({
                           </a>
                         </NavigationMenuLink>
                       </li>
-{/*                       <ListItem href="/docs" title="Introduction">
-                        Re-usable components built using Radix UI and Tailwind CSS.
+                       <ListItem href="/preset_1" title="Preset 1">
                       </ListItem>
-                      <ListItem href="/docs/installation" title="Installation">
-                        How to install dependencies and structure your app.
+                      <ListItem href="/preset_2" title="Preset 2">
                       </ListItem>
-                      <ListItem href="/docs/primitives/typography" title="Typography">
-                        Styles for headings, paragraphs, lists...etc
-                      </ListItem> */}
+                      <ListItem href="/preset_3" title="Preset 3">
+                      </ListItem> 
+                      <ListItem href="/preset_4" title="Preset 4">
+                      </ListItem> 
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem> 
                 <NavigationMenuItem> 
-                  <NavigationMenuTrigger>Sign In</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className="bg-slate-950 hover:bg-slate-800">Sign In</NavigationMenuTrigger>
                     <NavigationMenuContent>
-                      <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                      <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-slate-900">
                         {components.map((component) => (
                           <ListItem
                             key={component.title}
@@ -130,7 +129,7 @@ const ListItem = React.forwardRef<
         <a
           ref={ref}
           className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            " bg-slate-900 block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 hover:text-accent-foreground focus:bg-slate-800 focus:text-accent-foreground",
             className
           )}
           {...props}

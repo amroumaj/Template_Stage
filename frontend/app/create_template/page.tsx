@@ -146,7 +146,7 @@ export default function Home() {
           }}
         />
           <LeftSidebar /* allShapes={ Array.from(canvasObjects) } *//>
-          <canvas className="w-full" ref = {canvasRef} />
+          <canvas id="canvas" height="800" width="800" ref = {canvasRef} />
           <RightSidebar 
             elementAttributes= {elementAttributes}
             setElementAttributes={setElementAttributes}
