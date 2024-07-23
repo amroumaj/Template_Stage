@@ -38,6 +38,37 @@ export const initializeFabric = ({
   return canvas;
 };
 
+export const initializePreset_1 = ({
+  fabricRef,
+  canvasRef,
+}: {
+  fabricRef: React.MutableRefObject<fabric.Canvas | null>;
+  canvasRef: React.MutableRefObject<HTMLCanvasElement | null>;
+}) => {
+  // get canvas element
+  const canvasElement = document.getElementById("canvas");
+
+  // create fabric canvas
+  const canvas = new fabric.Canvas(canvasRef.current, {
+    width: canvasElement?.clientWidth,
+    height: canvasElement?.clientHeight,
+  });
+
+  // Add a rectangle to the canvas
+  canvas.add(new fabric.Rect({
+    left: 50,
+    top: 50,
+    height: 20,
+    width: 20,
+    fill: 'green'
+  }));
+
+  // set canvas reference to fabricRef so we can use it later anywhere outside the canvas listener
+  fabricRef.current = canvas;
+
+  return canvas;
+};
+
 // instantiate creation of custom fabric object/shape and add it to canvas
 export const handleCanvasMouseDown = ({
   options,
