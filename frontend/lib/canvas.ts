@@ -1,6 +1,6 @@
 import { v4 as uuid4 } from "uuid";
 import { fabric } from "fabric";
-
+import Image from "next/image";
 import {
   CanvasMouseDown,
   CanvasMouseMove,
@@ -38,6 +38,7 @@ export const initializeFabric = ({
   return canvas;
 };
 
+// Initialize the first preset
 export const initializePreset_1 = ({
   fabricRef,
   canvasRef,
@@ -52,22 +53,215 @@ export const initializePreset_1 = ({
   const canvas = new fabric.Canvas(canvasRef.current, {
     width: canvasElement?.clientWidth,
     height: canvasElement?.clientHeight,
+    backgroundColor: 'black',
   });
 
-  // Add a rectangle to the canvas
+  // Add a red rectangle to the canvas
   canvas.add(new fabric.Rect({
-    left: 50,
-    top: 50,
-    height: 20,
-    width: 20,
-    fill: 'green'
+    left: -50,
+    top: 75,
+    height: 650,
+    width: 900,
+    fill: '#a30000',
+  }));
+  
+  // Add a black rectangle to the canvas
+  canvas.add(new fabric.Rect({
+    left: -50,
+    top: 125,
+    height: 550,
+    width: 900,
+    fill: 'black'
   }));
 
+  // Add a red rectangle to the canvas
+  canvas.add(new fabric.Rect({
+    left: -50,
+    top: 175,
+    height: 450,
+    width: 900,
+    fill: '#a30000',
+  }));
+
+  // Add a line
+  canvas.add( new fabric.Line([0, 0, 0, 300],{
+    fill: 'black',
+    stroke: 'black',
+    strokeWidth: 3,
+    top: 250,
+    left: 270,
+  })); 
+
+  // Add the text boxes
+  canvas.add(new fabric.Text("Contact Us", {
+    fontWeight: 'bold',
+    fontSize: 35,
+    underline: true,
+    top: 225,
+    left: 430,
+    shadow: 'rgba(0,0,0,0.6) 5px 5px 5px',
+  }))
+
+  canvas.add(new fabric.Text("(+216) 50 123 456", {
+    fontWeight: '500',
+    fontSize: 25,
+    top: 325,
+    left: 450,
+    shadow: 'rgba(0,0,0,0.3) 5px 5px 5px'
+  }))
+
+  canvas.add(new fabric.Text("email@example.com", {
+    fontWeight: '500',
+    fontSize: 25,
+    top: 375,
+    left: 450,
+    shadow: 'rgba(0,0,0,0.3) 5px 5px 5px'
+  }))
+  
+  canvas.add(new fabric.Text("website.com", {
+    fontWeight: '500',
+    fontSize: 25,
+    top: 425,
+    left: 450,
+    shadow: 'rgba(0,0,0,0.3) 5px 5px 5px'
+  }))
+  
+  canvas.add(new fabric.Text("M'Saken, Sousse 4070", {
+    fontWeight: '500',
+    fontSize: 25,
+    top: 475,
+    left: 450,
+    shadow: 'rgba(0,0,0,0.3) 5px 5px 5px'
+  }))
+  
+  
   // set canvas reference to fabricRef so we can use it later anywhere outside the canvas listener
   fabricRef.current = canvas;
 
   return canvas;
 };
+// 
+// initialize the secondd preset
+export const initializePreset_2 = ({
+  fabricRef,
+  canvasRef,
+}: {
+  fabricRef: React.MutableRefObject<fabric.Canvas | null>;
+  canvasRef: React.MutableRefObject<HTMLCanvasElement | null>;
+}) => {
+  // get canvas element
+  const canvasElement = document.getElementById("canvas");
+
+  const imgURL = '/assets/images/Preset_2.jpg';
+
+  // create fabric canvas
+  const canvas = new fabric.Canvas(canvasRef.current, {
+    width: canvasElement?.clientWidth,
+    height: canvasElement?.clientHeight,
+    backgroundColor: 'white',
+  });
+
+  //Uploading the stock image
+  canvas.add(new fabric.Image('/assets/images/sun.jpg', {
+    opacity: 1,
+    left: -50,
+    top: 75,
+    height: 650,
+    width: 900,
+    scaleX: .9,
+    scaleY: .9,
+  }))
+/*   fabric.Image.fromURL('/assets/images/Preset_2.jpg', (image) => {
+    image.set({
+        top: 120,
+        left: -50,
+        scaleY: .9,
+    });
+    canvas.add(image);
+}); */
+
+// Add the dark box
+  canvas.add(new fabric.Rect({
+    left: -50,
+    top: 400,
+    height: 550,
+    width: 900,
+    fill: '#2b2727'
+  }));
+
+  // Add the teal box
+  canvas.add(new fabric.Rect({
+    top: 300,
+    height: 160,
+    width: 250,
+    fill: '#90E4C1'
+  }));
+
+  canvas.add(new fabric.Text("THE TECHNO GRIND", {
+    fontSize: 35,
+    fontWeight: 'bold',
+    top: 50,
+    left: 230,
+    shadow: 'rgba(0,0,0,0.3) 5px 5px 5px'
+  }))
+
+  canvas.add(new fabric.Text("MARKETING STRATEGY", {
+    fontSize: 25,
+    stroke: '#90E4C1',
+    fill: '#90E4C1',
+    fontWeight: 'bold',
+    top: 420,
+    left: 330,
+    shadow: 'rgba(144, 228, 193,0.3) 5px 5px 5px'
+  }))
+
+  canvas.add(new fabric.Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore \net dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut \naliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum \ndolore eu fugiat nulla pariatur.", {
+    fontSize: 15,
+    fill: 'white',
+    top: 480,
+    left: 30,
+  }))
+
+  canvas.add(new fabric.Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore \net dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut \naliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum \ndolore eu fugiat nulla pariatur.", {
+    fontSize: 15,
+    fill: 'white',
+    top: 600,
+    left: 30,
+  }))
+
+  canvas.add(new fabric.Text("THE LATEST TECHNOLOGIES", {
+    fontSize: 15,
+    fontWeight: 'bold',
+    top: 320,
+    left: 20,
+    underline: true,
+  }))
+  
+    canvas.add(new fabric.Text("THE LATEST SERVICES", {
+    fontSize: 15,
+    fontWeight: 'bold',
+    top: 350,
+    left: 20,
+    underline: true,
+  }))
+  
+  canvas.add(new fabric.Text("First line", {
+    fontSize: 15,
+    top: 380,
+    left: 20,
+  }))
+
+  canvas.add(new fabric.Text("Second line", {
+    fontSize: 15,
+    top: 410,
+    left: 20,
+  }))
+
+  // set canvas reference to fabricRef so we can use it later anywhere outside canvas listener
+  fabricRef.current = canvas;
+
+  return canvas;
+}
 
 // instantiate creation of custom fabric object/shape and add it to canvas
 export const handleCanvasMouseDown = ({
@@ -128,7 +322,6 @@ export const handleCanvasMouseDown = ({
 
     // if shapeRef is not null, add it to canvas
     if (shapeRef.current) {
-      // add: http://fabricjs.com/docs/fabric.Canvas.html#add
       canvas.add(shapeRef.current);
     }
   }
