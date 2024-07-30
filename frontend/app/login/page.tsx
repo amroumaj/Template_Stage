@@ -10,7 +10,7 @@ import {
   IconBrandGoogle,
   IconBrandOnlyfans,
 } from "@tabler/icons-react";
-import { login } from "@/lib/pocketbase";
+import pb, { login } from "@/lib/pocketbase";
 
 type formValues = {
   email: string,
@@ -25,7 +25,13 @@ export default function page() {
 
   const onSubmit =  (data: formValues)  => {
     login( data.email, data.password);  
-    /* router.push("/"); */
+    document.cookie = pb.authStore.exportToCookie({ httpOnly: false });
+    if (URLSearchParams) {
+      //  redirect to the page tey were going to before
+      router.push("/templates");
+    } else {
+      router.push("/");
+    }
     
   }
 

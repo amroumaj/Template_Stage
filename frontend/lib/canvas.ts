@@ -263,6 +263,95 @@ export const initializePreset_2 = ({
   return canvas;
 }
 
+// instantiate the third preset
+export const initializePreset_3 = ({
+  fabricRef,
+  canvasRef,
+}: {
+  fabricRef: React.MutableRefObject<fabric.Canvas | null>;
+  canvasRef: React.MutableRefObject<HTMLCanvasElement | null>;
+}) => {
+  // get canvas element
+  const canvasElement = document.getElementById("canvas");
+
+  // create fabric canvas
+  const canvas = new fabric.Canvas(canvasRef.current, {
+    width: canvasElement?.clientWidth,
+    height: canvasElement?.clientHeight,
+    backgroundColor: '#020617',
+  });
+
+  // Add the light rectangle
+  canvas.add(new fabric.Rect({
+    left: 150,
+    top: 75,
+    height: 650,
+    width: 500,
+    fill: '#374151',
+  }));
+
+    // Add the dark rectangle
+    canvas.add(new fabric.Rect({
+      left: 275,
+      top: 550,
+      height: 100,
+      width: 250,
+      fill: '#020617',
+    }));
+ 
+  // Add Text
+  canvas.add(new fabric.Text("NEW YEAR GLAM", {
+    fontSize: 35,
+    fontWeight: 'bold',
+    top: 150,
+    left: 250,
+    fontFamily: 'FiraCode Nerd Font'
+  }))
+
+  canvas.add(new fabric.Text(">> Incoming >>", {
+    fontSize: 30,
+    top: 220,
+    left: 285,
+    textAlign: 'center',
+  }))
+  
+  canvas.add( new fabric.Line([100, 0, 0, 0],{
+    fill: 'black',
+    stroke: 'black',
+    strokeWidth: 3,
+    top: 300,
+    left: 350,
+  })); 
+
+  canvas.add(new fabric.Text("GRAB YOUR NEW YEAR \nGIFT COUPON BELOW!", {
+    fontSize: 30,
+    top: 350,
+    left: 235,
+    textAlign: 'center',
+  }))
+  
+  canvas.add(new fabric.Text("FOR 25% OFF", {
+    fontSize: 30,
+    top: 500,
+    left: 305,
+    textAlign: 'center',
+  }))
+
+  canvas.add(new fabric.Text("XXXX", {
+    fontSize: 30,
+    top: 580,
+    left: 360,
+    fill:'#374151',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  }))
+
+  // set canvas reference to fabricRef so we can use it later anywhere outside canvas listener
+  fabricRef.current = canvas;
+
+  return canvas;
+};
+
 // instantiate creation of custom fabric object/shape and add it to canvas
 export const handleCanvasMouseDown = ({
   options,

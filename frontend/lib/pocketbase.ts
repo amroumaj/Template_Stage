@@ -2,6 +2,8 @@ import Pocketbase from 'pocketbase';
 
 const pb = new Pocketbase('http://127.0.0.1:8090');
 
+export const isUserValid = pb.authStore.isValid ;
+
 export async function signup(username: string, email: string, password: string) {
     const data = {
       username: username,
@@ -14,8 +16,10 @@ export async function signup(username: string, email: string, password: string) 
 
 export async function login(email: string, password: string) {
 try {
-    await pb.collection("users").authWithPassword(email, password);
-    window.location.reload();
+    const authData = await pb.collection("users").authWithPassword(email, password);
+    return authData;
+    console.log(pb.authStore.isValid);
+    /* window.location.reload(); */
 } catch(e) {
     alert(e);
 }
