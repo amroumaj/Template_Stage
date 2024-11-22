@@ -15,8 +15,8 @@ Before starting, make sure you have the following installed:
 1. **Clone the repository:**
 
    ```Terminal
-   git clone <repository-url>
-   cd <repository-folder>
+   git clone git@github.com:amroumaj/Template_Stage.git
+   cd Template_Stage/frontend
 
 2. **Install the dependencies :**
 
@@ -26,15 +26,25 @@ Before starting, make sure you have the following installed:
 3. **Set the environment variables:**
 
    ```JS/TS
-    PORT=3000
-    POCKETBASE_URI=<your-pocketbase-uri>
+    PORT=http://127.0.0.1:3000
+    POCKETBASE_URI=http://127.0.0.1:8090
 
 4. **Start the development server:**
 
    ```Terminal
     npm run dev
+    ./pocketbase serve
 
 5. **Open your browser**
 
     Navigate to [http://localhost:3000](http://localhost:3000).
+    Navigate to [http://localhost:8090/_/](http://localhost:8090/_/) for pocketbase dashboard.
+
+
+## Demo videos
+
+![Video](./assets/Auth.mp4)
+
+![Video](./assets/functionality.mp4)
+
 
