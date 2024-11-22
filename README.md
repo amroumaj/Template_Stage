@@ -43,8 +43,8 @@ Before starting, make sure you have the following installed:
 
 ## Demo videos
 
-![Video](./assets/Auth.mp4)
+![Auth/middleware demo](./assets/Auth.mp4)
 
-![Video](./assets/functionality.mp4)
+![Functionality demo](./assets/functionality.mp4)
 
 
