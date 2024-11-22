@@ -20,11 +20,11 @@ export default function page() {
             translateZ="60"
             className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
             >
-            Hover over this card to unleash the power of CSS perspective
+            A preset of a personal or a company card containing credentials
             </CardItem>
             <CardItem translateZ="100" className="w-full mt-4">
             <Image
-                src="/assets/images/sun.jpg"
+                src="/assets/images/screenshot_2024-11-12-190931.png"
                 height="1000"
                 width="1000"
                 className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
@@ -64,11 +64,11 @@ export default function page() {
             translateZ="60"
             className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
             >
-            Hover over this card to unleash the power of CSS perspective
+            A preset of a news letter for a quarterly report and statistics
             </CardItem>
             <CardItem translateZ="100" className="w-full mt-4">
             <Image
-                src="/assets/images/Storm_Cube.png"
+                src="/assets/images/screenshot_2024-11-12-190918.png"
                 height="1000"
                 width="1000"
                 className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
@@ -108,11 +108,11 @@ export default function page() {
             translateZ="60"
             className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
             >
-            Hover over this card to unleash the power of CSS perspective
+            A preset of a newwsletter advertising huge sales are on the way
             </CardItem>
             <CardItem translateZ="100" className="w-full mt-4">
             <Image
-                src="/assets/images/sunset.jpg"
+                src="/assets/images/screenshot_2024-11-12-190855.png"
                 height="1000"
                 width="1000"
                 className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
@@ -152,7 +152,7 @@ export default function page() {
             translateZ="60"
             className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
             >
-            Hover over this card to unleash the power of CSS perspective
+            A preset for an artestic view of a futurisic landscape city with a tower
             </CardItem>
             <CardItem translateZ="100" className="w-full mt-4">
             <Image
@@ -195,11 +195,11 @@ export default function page() {
             translateZ="60"
             className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
             >
-            Hover over this card to unleash the power of CSS perspective
+            Start with a blank canvas and make your owwn design from scratch
             </CardItem>
             <CardItem translateZ="100" className="w-full mt-4">
             <Image 
-                src="/assets/images/dashboard-customize.svg"
+                src="/assets/images/add1.png"
                 height="600"
                 width="600"
                 className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"

@@ -146,7 +146,7 @@ export default function Home() {
           }}
         />
           <LeftSidebar /* allShapes={ Array.from(canvasObjects) } *//>
-          <canvas id="canvas" height="800" width="800" ref = {canvasRef} />
+          <canvas className="shadow-lg shadow-slate-950 dark:shadow-slate-400" id="canvas" height="800" width="800" ref = {canvasRef} />
           <RightSidebar 
             elementAttributes= {elementAttributes}
             setElementAttributes={setElementAttributes}
